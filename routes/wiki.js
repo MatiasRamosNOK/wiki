@@ -18,7 +18,7 @@ router.post("/", function (req, res, next) {
     title: infoPost.title,
     content: infoPost.content,
   })
-    .then(res.render("index.html"))
+    .then((info) => res.send(res.json(info)))
     .catch((err) => {
       console.log(err);
     });
