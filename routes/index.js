@@ -10,12 +10,11 @@ const { Page } = require("../models");
 const { User } = require("../models");
 module.exports = router;
 
-// ...
-
 router.use("/wiki", wikiRouter);
+router.use("/users", function (req, res, next) {});
 router.get("/", function (req, res, next) {
-  Page.findAll().then((info) => {
-    console.log(info);
+  var user = Page.findAll().then((info) => {
+    res.render("index", { pages: info });
   });
 });
 

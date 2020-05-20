@@ -18,6 +18,13 @@ Page.init(
     status: {
       type: Sequelize.ENUM("open", "closed"),
     },
+    email: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: true,
+      },
+    },
     urlPagina: {
       type: Sequelize.VIRTUAL,
       get() {
